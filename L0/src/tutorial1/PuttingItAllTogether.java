@@ -26,7 +26,7 @@ public class PuttingItAllTogether {
 	}
 	
 	/*
-	 * Difference between stringbuilder and stringbuffer:
+	 * Difference between stringbuilder and stringbuffer: (Wikied)
 	 * 		StringBuffer is synchronized, StringBuilder is not. 
 	 * 		So StringBuilder is faster than StringBuffer because it's not synchronized.
 	 * 		The operations are "almost" the same, but using synchronized methods in a single thread is overkill.

@@ -1,6 +1,6 @@
 package tutorial1;
 
-import java.util.Scanner; //auto import using Organise Imports
+import java.util.Scanner; //auto import using Organise Imports (Wikied)
 
 public class Conditions {
 
@@ -9,7 +9,7 @@ public class Conditions {
 
 		System.out.println("Please input your name.");
 		String name = scanner.nextLine();
-		scanner.close(); //close scanner after use.
+		scanner.close(); //close scanner after use. (Wikied)
 		
 		if (name.isEmpty()){
 			System.out.println("Name is empty.");
