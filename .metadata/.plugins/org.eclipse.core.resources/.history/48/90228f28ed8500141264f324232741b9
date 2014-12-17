@@ -1,0 +1,17 @@
+package tutorial2;
+
+public class Types {
+
+	public static void main(String[] args) {
+		int a = 1;
+		short b = 2;
+		long c = 3;
+		float d = 4.0;
+		double e = 5.0;
+		char f = 't';
+		boolean g = true;
+
+		System.out.println("All the seven data types in java:" + a + b + c + d + e + f + g);
+	}
+
+}
