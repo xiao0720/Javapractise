@@ -1,0 +1,100 @@
+package virtualChessboard;
+
+public class VirtualChess {
+	public enum Chessmen {
+		WHITE_KING,
+		WHITE_QUEEN,
+		WHITE_ROOK,
+		WHITE_BISHOP,
+		WHITE_KNIGHT,
+		WHITE_PAWN,
+
+		BLACK_KING,
+		BLACK_QUEEN,
+		BLACK_ROOK,
+		BLACK_BISHOP,
+		BLACK_KNIGHT,
+		BLACK_PAWN,
+
+		EMPTY
+	}
+	public static void main(String[] args) {
+		//creating a chessboard matrix, array of size 8x8
+		Chessmen[][] chessboard = new Chessmen[8][8]; 
+
+		//nested for loop populate chessboard with pieces and empty spaces
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j<8; j++) {
+
+				//if...else...to place pieces in their right place
+				if ((i == 0) && ((j == 0)||(j == 7))) {
+				chessboard[i][j] = Chessmen.BLACK_ROOK;
+				}
+				else if ((i == 0) && ((j == 1)||(j == 6))) {
+				chessboard[i][j] = Chessmen.BLACK_KNIGHT;	
+				}
+				else if ((i == 0) && ((j == 2)||(j == 5))) {
+				chessboard[i][j] = Chessmen.BLACK_BISHOP;	
+				}
+				else if ((i == 0) && (j == 3)) {
+				chessboard[i][j] = Chessmen.BLACK_QUEEN;	
+				}
+				else if ((i == 0) && (j == 4)) {
+				chessboard[i][j] = Chessmen.BLACK_KING;	
+				}
+				else if (i == 1) {
+				chessboard[i][j] = Chessmen.BLACK_PAWN;	
+				}
+
+				else if ((i == 7) && ((j == 0)||(j == 7))) {
+				chessboard[i][j] = Chessmen.WHITE_ROOK;
+				}
+				else if ((i == 7) && ((j == 1)||(j == 6))) {
+				chessboard[i][j] = Chessmen.WHITE_KNIGHT;	
+				}
+				else if ((i == 7) && ((j == 2)||(j == 5))) {
+				chessboard[i][j] = Chessmen.WHITE_BISHOP;	
+				}
+				else if ((i == 7) && (j == 3)) {
+				chessboard[i][j] = Chessmen.WHITE_QUEEN;	
+				}
+				else if ((i == 7) && (j == 4)) {
+				chessboard[i][j] = Chessmen.WHITE_KING;	
+				}
+				else if (i == 6) {
+				chessboard[i][j] = Chessmen.WHITE_PAWN;	
+				}
+
+				else {
+				chessboard[i][j] = Chessmen.EMPTY;	
+				}
+
+
+			}
+		}
+		printBoard(chessboard);
+
+	}
+	public static void printBoard(Chessmen[][] chessboard){
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j<8; j++) {
+				switch(chessboard[i][j]){
+					case BLACK_PAWN: System.out.print("bP\t");break;
+					case BLACK_KING: System.out.print("BK");break;
+					case BLACK_QUEEN: System.out.print("bQ");break;
+					case BLACK_BISHOP: System.out.print("bB");break;
+					case BLACK_KNIGHT: System.out.print("bK");break;
+					case BLACK_ROOK: System.out.print("bR");break;
+					case WHITE_PAWN: System.out.print("wP");break;
+					case WHITE_KING: System.out.print("WK");break;
+					case WHITE_QUEEN: System.out.print("wQ");break;
+					case WHITE_BISHOP: System.out.print("wB");break;
+					case WHITE_KNIGHT: System.out.print("wK");break;
+					case WHITE_ROOK: System.out.print("wR");break;
+					case EMPTY: System.out.print(" ");break;
+				}				
+			}
+			System.out.println(); //change to another line after each column
+		}
+	}
+}
