@@ -185,7 +185,7 @@ public class VirtualChess {
 		}
 
 		//check if input is valid, if not, ask for another input
-		if ((8==i)||(8==j)||(8==a)||(8==b)||(components[0].length() != 2)||(components[2].length() != 2)) { //length of String .length() length of array .length
+		if ((8==i)||(8==j)||(8==a)||(8==b)||(components[0].length() != 2)||(components[2].length() != 2)||(components.length != 3)) { //length of String .length() length of array .length
 			System.err.println("Invalid input, try again!");
 		}
 		//if input is correct, then process to validate the move
