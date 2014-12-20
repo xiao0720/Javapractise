@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class ArrayElementRemoval {
+
+	public static void main(String[] args) {
+		String[] arr = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog."};
+		for (String string : arr) {
+			System.out.print(string + " ");
+		}
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+		scanner.close();
+
+		/*
+		arr = remElement(arr, num);
+		for (String string : arr) {
+			System.out.print(string + " ");
+		}
+		*/
+
+		for (ArrayList arr2 : remElement(arr, num)) {
+			System.out.println(arr2 + " ");
+		}
+
+
+	}
+
+	public static String[] remElement(String[] arr, int num){
+		arr[num] = "\b";
+		return arr;
+	}
+	
+	public static ArrayList remElement2(String[] arr, int num){
+		ArrayList arr2 = new ArrayList();
+		for (String array : arr) {
+			arr2.add(array);
+		}
+		arr2.remove(num);
+		return arr2;
+	}
+
+}

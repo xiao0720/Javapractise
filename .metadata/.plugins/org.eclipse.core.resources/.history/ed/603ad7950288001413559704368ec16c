@@ -1,0 +1,12 @@
+
+public class ArrayElementRemoval {
+
+	public static void main(String[] args) {
+		String[] arr = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog."};
+		for (String string : arr) {
+			System.out.print(string);
+		}
+
+	}
+
+}

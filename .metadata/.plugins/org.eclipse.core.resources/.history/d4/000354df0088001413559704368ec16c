@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+
+public class ProgramFlowandBooleans {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int num = scanner.nextInt();
+		System.out.println(isEven(num));
+		scanner.close();
+
+	}
+
+	public static boolean isEven(int number){
+		if (number % 2 == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}
