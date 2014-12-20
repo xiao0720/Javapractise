@@ -1,0 +1,42 @@
+package l12;
+
+import java.util.Arrays;
+
+public class Bubblesort {
+
+	public static void main(String[] args) {
+		int[] A = new int[]{1,5,3};
+
+		//using loop to print an array
+		for (int num: A) { //for each: for(dataTypeOfElement newName: existingArray)
+			System.out.print(num);
+		}
+		
+		//using toString in Arrays to print an array
+		//System.out.println(Arrays.toString(bubbleSort(A)));
+		
+		System.out.println();
+		//using for each to print an array		
+		for (int num: bubbleSort(A)) { 
+			System.out.print(num);
+		}
+		
+		
+	}
+
+	public static int[] bubbleSort(int[] A){
+		int ram = 0; 	
+		if (A[0]>A[1]) {
+			ram = A[0];
+			A[0] = A[1];
+			A[1] = ram;
+		}
+		if (A[1]>A[2]) {
+			ram = A[1];
+			A[1] = A[2];
+			A[2] = ram;
+		}
+		return A;
+	}
+
+}
