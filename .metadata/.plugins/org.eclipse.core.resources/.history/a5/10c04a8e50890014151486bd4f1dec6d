@@ -1,0 +1,26 @@
+/**
+ * <dl>
+ * 	<dt> Purpose:
+ * 	<dd> Hello World
+ * 	<dt> Description:
+ * 	<dd> Hello World!
+ * 
+ * @author Xiao Liu
+ */
+
+public class HelloWorld {
+//This is my first java file
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+		
+		int[][] arr = new int[3][5];
+		for (int[] num: arr) {
+			for (int number: num) {
+				number = (int)(10*Math.random());
+			}
+		}
+		
+		System.out.println(arr[2][3]);
+	}
+
+}

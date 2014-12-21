@@ -1,0 +1,81 @@
+package radarGraph;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+/**
+ * JPanel RadarGraph, a container.
+ * 
+ * @author Xiao
+ *
+ */
+public class RadarGraph extends JPanel{
+	public RadarGraph(){
+		setBackground(Color.WHITE);
+	}
+
+/**
+* PaintComponent funciton inside RadarGraph.java.
+* This method is from JPanel class, whenever the JVM needs to redraw the element on the screen, it executes.
+* Graphic2D is implementation of abstract class Graphics used for 2D drawing.
+*/
+	@Override
+	public void paintComponent(Graphics g){
+		//clear the screen
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+		drawWeb(g2d);
+	}
+
+/**
+* Calculate X and Y of the window
+*/
+	private void drawWeb(Graphics2D g2d){
+		Dimension d = this.getSize();
+		int X = (int)(d.getWidth())/2;
+		int Y = (int)(d.getHeight())/2;
+		double R = 0.9 * (d.getHeight())/2;
+		double[] Theta = new double[6];
+
+		for (int i = 0; i<6; i++) {
+			Theta[i] = (Math.PI*2*i)/5-Math.PI*1/10;
+		}
+
+		int X1, Y1;
+		for (int i = 0; i<5; i++) {
+			X1 = X + (int)(R*Math.cos(Theta[i]));
+			Y1 = Y + (int)(R*Math.sin(Theta[i]));
+			g2d.drawLine(X, Y, X1, Y1);	
+		}
+		
+		int X01, X02, Y01, Y02;
+		for (int i = 1; i < 11; i++) {
+			for(int j = 0; j<5; j++){
+				X01 = X + (int)(R*i/10*Math.cos(Theta[j]));
+				Y01 = Y + (int)(R*i/10*Math.sin(Theta[j]));
+				X02 = X + (int)(R*i/10*Math.cos(Theta[j+1]));
+				Y02 = Y + (int)(R*i/10*Math.sin(Theta[j+1]));
+				g2d.drawLine(X01, Y01, X02, Y02);
+			}
+		}
+		
+		int X11, X12, Y11, Y12;
+		for (int i = 0; i < 1; i++) {
+			for(int j = 0; j<5; j++){
+				double ran1 = Math.random();
+				double ran2 = Math.random();
+				X11 = X + (int)(R*ran1*Math.cos(Theta[j]));
+				Y11 = Y + (int)(R*ran1*Math.sin(Theta[j]));
+				X12 = X + (int)(R*ran2*Math.cos(Theta[j+1]));
+				Y12 = Y + (int)(R*ran2*Math.sin(Theta[j+1]));
+				g2d.drawLine(X11, Y11, X12, Y12);
+			}
+		}
+
+	}
+
+}

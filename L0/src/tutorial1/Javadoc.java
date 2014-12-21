@@ -7,7 +7,7 @@ package tutorial1;
  * 	<dt> Description:
  * 	<dd> This program is from hello world, and it is with java doc
  * 
- * @author Xiao
+ * @author Xiao Liu
  * @version $Date: 2014/12/16 23:18 $
  */
 

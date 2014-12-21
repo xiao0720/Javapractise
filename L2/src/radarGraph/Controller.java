@@ -1,0 +1,41 @@
+package radarGraph;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+public class Controller {
+	public static void main(String[] args) throws Exception{
+		//run asynchronously
+		javax.swing.SwingUtilities.invokeLater(new Runnable(){
+			public void run(){
+				createAndShowGUI();
+			}
+		});
+	}
+
+/**
+* Create a JFrame of the size of 640x480 pixels
+
+*/
+	private static void createAndShowGUI(){
+		//create a top level container, the JFrame called frame
+		JFrame frame = new JFrame("Radar Graph");
+
+		//set default close operation: close when click on exit of JFrame frame
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		//set size of Jframe
+		frame.setMinimumSize(new Dimension(640, 480));
+
+		//add element
+		frame.add(new RadarGraph());
+		
+		//add JLabel
+		//frame.add(new RadarLabel());
+		
+		//display the frame
+		frame.pack();
+		frame.setVisible(true);
+	}
+}

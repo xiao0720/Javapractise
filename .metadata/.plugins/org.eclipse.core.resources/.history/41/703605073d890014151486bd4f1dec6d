@@ -1,0 +1,18 @@
+package radarGraph;
+
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+/**
+ * JPanel RadarGraph, container.
+ * 
+ * @author Xiao
+ *
+ */
+public class RadarGraph extends JPanel{
+	public RadarGraph(){
+		setBackground(Color.red);
+	}
+
+}
