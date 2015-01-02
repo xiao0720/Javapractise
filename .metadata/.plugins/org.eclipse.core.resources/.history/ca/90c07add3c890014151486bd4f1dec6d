@@ -1,8 +1,0 @@
-package radarGraph;
-
-public class RadarGraph extends JPanel{
-	public RadarGraph(){
-		setBackground(Color.red);
-	}
-
-}

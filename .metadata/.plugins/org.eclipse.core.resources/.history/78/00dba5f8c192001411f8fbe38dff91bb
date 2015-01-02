@@ -1,0 +1,20 @@
+
+public class Arraylst {
+
+	public static void main(String[] args) {
+		//initialization 
+		ArrayList aList = new ArrayList();
+
+		//store random numbers to aList
+		for (int i = 0; i<100; i++) {
+			aList.add((int)Math.random()*10);
+		}
+
+		//pritnln out all the numbers in the ArrayList
+		for (int i = 0; i<100; i++) {
+			System.out.println(aList.get(i));
+		}
+
+	}
+
+}

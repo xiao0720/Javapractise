@@ -16,7 +16,7 @@ public class Controller {
 
 /**
 * Create a JFrame of the size of 640x480 pixels
-
+*
 */
 	private static void createAndShowGUI(){
 		//create a top level container, the JFrame called frame
@@ -32,8 +32,8 @@ public class Controller {
 		frame.add(new RadarGraph());
 		
 		//add JLabel
-		//frame.add(new RadarLabel());
-		
+		//frame.add(new JLabel("Efficiency");
+	
 		//display the frame
 		frame.pack();
 		frame.setVisible(true);

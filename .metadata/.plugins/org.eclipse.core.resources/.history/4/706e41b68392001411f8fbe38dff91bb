@@ -1,0 +1,28 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+
+public class ChartPanel extends JPanel{
+	public ChartPanel(){
+		setBackground(Color.WHITE);
+	}
+
+	@Override
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+		drawChart(g2d);
+	}
+
+	private void drawChart(){
+		//bar chart deawing code here
+		Dimension d = getSize();
+		int height = d.height;
+		int width = d.width;
+	}
+
+}

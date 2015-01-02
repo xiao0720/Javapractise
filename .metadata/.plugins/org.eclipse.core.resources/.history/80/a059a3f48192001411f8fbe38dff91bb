@@ -1,0 +1,11 @@
+
+public class ChartPanel {
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
+		//bar chart deawing code here
+		Dimension d = getSize();
+		int height = d.height;
+		int width = d.width;
+	}
+}

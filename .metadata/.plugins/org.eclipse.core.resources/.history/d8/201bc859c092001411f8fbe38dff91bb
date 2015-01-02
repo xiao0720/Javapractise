@@ -1,0 +1,39 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JPanel;
+
+
+public class ChartPanel extends JPanel{
+	private double[] values;
+	private String[] names;
+
+	public ChartPanel(double[] v, String[] n){
+		values = v;
+		names = n;
+	}
+
+	@Override
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g;
+		drawChart(g2d);
+	}
+
+	private void drawChart(Graphics2D g2d){
+		//bar chart deawing code here
+		Dimension d = getSize();
+		int height = d.height;
+		int width = d.width;
+		int barWidth = width/values.length;
+
+		g.setColor(Color.red);
+		//g.fillRect()
+
+
+		
+	}
+
+}

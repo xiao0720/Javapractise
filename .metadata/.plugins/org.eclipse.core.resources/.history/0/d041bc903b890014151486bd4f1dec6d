@@ -1,9 +1,0 @@
-package radarGraph;
-
-public class UIPlayground {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

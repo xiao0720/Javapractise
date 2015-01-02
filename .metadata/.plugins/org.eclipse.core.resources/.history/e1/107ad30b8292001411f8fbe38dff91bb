@@ -1,0 +1,14 @@
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+
+public class ChartPanel extends JPanel{
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
+		//bar chart deawing code here
+		Dimension d = getSize();
+		int height = d.height;
+		int width = d.width;
+	}
+}

@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+
+
+public class Arraylst {
+
+	public static void main(String[] args) {
+		//initialization 
+		ArrayList<Integer> aList = new ArrayList<Integer>();
+
+		//store random numbers to aList
+		for (int i = 0; i<10; i++) {
+			aList.add((int)(Math.random()*10));
+		}
+
+		//pritnln out all the numbers in the ArrayList
+		System.out.println(aList);
+
+		int sum = 0;
+		for (int i=0; i<10; i++) {
+			if ((aList.get(i)%2) == 0) {
+				sum += aList.get(i);
+			}
+		}
+		System.out.println("Sum of all the odd umbers is: " + sum);
+		
+		ArrayList<Integer> cList = new ArrayList<Integer>();
+		for (int i = 0; i<aList.size(); i++) {
+			if (aList.get(i)%2 != 0) {
+				cList.add(aList.get(i));
+				aList.remove(i);
+				i = i-1;			
+			}			
+		}
+		
+		aList.add(cList);
+		System.out.println("odd numbers removed");
+		System.out.println("cList = " + cList);
+
+		System.out.println(aList);
+
+		ArrayList<Integer> bList = new ArrayList<Integer>();
+		bList.add(0);
+		bList.add(5);
+		bList.add(4);
+		bList.add(2);
+		System.out.println(bList);
+		for (int i=0; i<bList.size(); i++) {
+			if (bList.get(i)%2 != 0){
+				bList.add(bList.get(i));
+				bList.remove(i);
+			}
+
+		}
+		
+		System.out.println(bList);
+
+
+
+	}
+
+}
