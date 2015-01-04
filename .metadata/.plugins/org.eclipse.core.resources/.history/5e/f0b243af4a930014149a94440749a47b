@@ -1,0 +1,53 @@
+package currencyConverter;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+
+public class CurrencyConverter {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CurrencyConverter window = new CurrencyConverter();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CurrencyConverter() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		//1. create the top level container
+		frame = new JFrame("Currency Converter");
+
+		frame.setBounds(0,0,250,350);
+		
+		//2. default close operation
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		frame.getContentPane().add(new ConverterPanel());
+
+		//frame.pack(); //automatically change size according to components
+		frame.setVisible(true);
+	}
+
+}

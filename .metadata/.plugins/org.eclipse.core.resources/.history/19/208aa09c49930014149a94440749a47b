@@ -1,0 +1,12 @@
+package currencyConverter;
+
+public class ConverterPanel extends JPanel{
+	ConverterPanel(){
+
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		
+	}
+}

@@ -1,0 +1,75 @@
+package currencyConverter;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CurrencyConverter {
+
+	private JFrame frame;
+	private JTextField jTextField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CurrencyConverter window = new CurrencyConverter();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CurrencyConverter() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		//1. create the top level container
+		frame = new JFrame("Currency Converter");
+
+		frame.setBounds(0,0,300,350);
+		
+		//2. default close operation
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel jLabelText = new JLabel("Enter a number:");
+		jLabelText.setBounds(6, 6, 125, 16);
+		frame.getContentPane().add(jLabelText);
+		
+		jTextField = new JTextField();
+		jTextField.setBounds(143, 0, 134, 28);
+		frame.getContentPane().add(jTextField);
+		jTextField.setColumns(10);
+		
+		JButton jButtonAdd = new JButton("Add Number");
+		jButtonAdd.setBounds(76, 37, 117, 29);
+		frame.getContentPane().add(jButtonAdd);
+
+		//frame.getContentPane().add(new ConverterPanel());
+
+		//frame.pack(); //automatically change size according to components
+		frame.setVisible(true);
+	}
+}
