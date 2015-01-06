@@ -1,0 +1,95 @@
+package currencyConverter;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class CurrencyConverter {
+
+	private JFrame frame;
+	private JTextField jTextFieldNumber;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CurrencyConverter window = new CurrencyConverter();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CurrencyConverter() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		//1. create the top level container
+		frame = new JFrame("Currency Converter");
+
+		frame.setBounds(0,0,300,350);
+		
+		//2. default close operation
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		//3. adding JLabel
+		JLabel jLabelText = new JLabel("Enter a number:");
+		jLabelText.setBounds(6, 6, 125, 16);
+		frame.getContentPane().add(jLabelText);
+
+		JLabel jLabelText2 = new JLabel("The result is:");
+		jLabelText2.setBounds(6, 96, 271, 16);
+		frame.getContentPane().add(jLabelText2);
+
+		//adding JMenuBar
+		JMenubar jMenubar1 = new JMenubar();
+		jMenubar1.setOpaque(true);
+		jMenubar1.setBackground(new Color(154, 165, 127));
+		jMenubar1.setPreferredSize(new Dimension(200,100));
+		
+		//adding JTextField
+		JTextField jTextFieldNumber = new JTextField();
+		jTextFieldNumber.setBounds(143, 0, 134, 28);
+		frame.getContentPane().add(jTextFieldNumber);
+		jTextFieldNumber.setColumns(10);
+		
+		//adding JButton
+		JButton jButtonAdd = new JButton("Add Number");
+		
+		//adding action listener
+		jButtonAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(jTextFieldNumber.getText());
+				String numberGot = jTextFieldNumber.getText(); //JTextField .getText()
+				jLabelText2.setText("The result is: " + numberGot); //JLabel .setText()
+			}
+		});
+		jButtonAdd.setBounds(76, 37, 117, 29);
+		frame.getContentPane().add(jButtonAdd);
+		
+		//frame.getContentPane().add(new ConverterPanel());
+
+		//frame.pack(); //automatically change size according to components
+		frame.setVisible(true);
+	}
+}

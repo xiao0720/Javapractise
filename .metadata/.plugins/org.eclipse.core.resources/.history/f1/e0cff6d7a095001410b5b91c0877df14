@@ -1,0 +1,171 @@
+package currencyConverter;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class CurrencyConverter {
+
+	private JFrame frame;
+	private JTextField jTextFieldNumber;
+	private String currentCurrency;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CurrencyConverter window = new CurrencyConverter();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public CurrencyConverter() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		//1. create the top level container
+		frame = new JFrame("Currency Converter");
+
+		frame.setBounds(0,0,500,500);
+		
+		//2. default close operation
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		//3. adding JLabel
+		JLabel jLabelText = new JLabel("Enter username:");
+		jLabelText.setBounds(6, 6, 125, 16);
+		frame.getContentPane().add(jLabelText);
+
+		JLabel jLabelText2 = new JLabel("The result is:");
+		jLabelText2.setBounds(143, 100, 351, 28);
+		frame.getContentPane().add(jLabelText2);
+
+		//adding JMenuBar
+		JMenuBar jMenubar1 = new JMenuBar();
+		jMenubar1.setOpaque(true);
+		jMenubar1.setBackground(new Color(154, 165, 127));
+		jMenubar1.setPreferredSize(new Dimension(500,20));
+		frame.setJMenuBar(jMenubar1); //JMenuBar is different
+		
+		JButton jButtonAdd = new JButton("Generate");
+		JButton jButton1 = new JButton("Enable");
+		JButton jButton2 = new JButton("Disable");
+		jButton1.setBounds(6, 132, 117, 29);
+		jButton2.setBounds(135, 132, 117, 29);
+		jButton1.setActionCommand("enable");
+		jButton2.setActionCommand("disable");
+
+		jButton1.setEnabled(true);
+		jButton2.setEnabled(false);
+		
+		JTextField jTextFieldNumber = new JTextField();
+		jButton1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+					jButtonAdd.setEnabled(true);
+					jButton1.setEnabled(false);
+					jButton2.setEnabled(true);
+				
+			}
+		});
+
+		jButton2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				jButtonAdd.setEnabled(false);
+				jButton1.setEnabled(true);
+				jButton2.setEnabled(false);
+
+			}
+		});
+
+		frame.getContentPane().add(jButton1);
+		frame.getContentPane().add(jButton2);
+						
+		//JCheckBox jCheckBox1
+
+		//adding JTextField
+		//JTextField jTextFieldNumber = new JTextField();
+		jTextFieldNumber.setBounds(143, 0, 351, 28);
+		frame.getContentPane().add(jTextFieldNumber);
+		jTextFieldNumber.setColumns(10);
+
+		//adding a regular text field
+		JPasswordField jTextFieldReg = new JPasswordField();
+		jTextFieldReg.setBounds(143, 33, 351, 28);
+		frame.getContentPane().add(jTextFieldReg);
+
+		
+		//adding JButton
+		//JButton jButtonAdd = new JButton("Generate");
+		jButtonAdd.setEnabled(false);
+
+		//adding action listener
+		jButtonAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Pin Generated!");
+				String numberGot = jTextFieldNumber.getText(); //JTextField .getText()
+				String pinGot = jTextFieldReg.getText();
+				int pin = (int)Double.parseDouble(pinGot);
+				jLabelText2.setText("The result is: " + numberGot + " " + (pin/2)); //JLabel .setText()
+			}
+		});
+		jButtonAdd.setBounds(6, 101, 117, 29);
+		frame.getContentPane().add(jButtonAdd);
+		
+		JLabel jLabelPin = new JLabel("Enter pin:");
+		jLabelPin.setBounds(6, 39, 125, 16);
+		frame.getContentPane().add(jLabelPin);
+
+		JTextField jTextBoxAmount = new JTextField();
+		jTextBoxAmount.setBounds(174, 197, 117, 29);
+		frame.getContentPane().add(jTextBoxAmount);
+
+		JLabel jLabelAmount = new JLabel("Enter amount to convert:");
+		jLabelAmount.setBounds(6, 197, 175, 29);
+		frame.getContentPane().add(jLabelAmount);
+		
+		String[] currencies = {"CNY", "JPY", "USD", "EUR", "GBP"};
+		JComboBox jComboBoxCurrency = new JComboBox(currencies);
+		jComboBoxCurrency.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				(String)e.getSource();
+			}
+		});
+		jComboBoxCurrency.setBounds(303, 199, 125, 27);
+		jComboBoxCurrency.setSelectedIndex(4);
+
+		frame.getContentPane().add(jComboBoxCurrency);
+
+		
+		//frame.getContentPane().add(new ConverterPanel());
+
+		//frame.pack(); //automatically change size according to components
+		frame.setVisible(true);
+	}
+}
