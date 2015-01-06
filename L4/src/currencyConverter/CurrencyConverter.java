@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -184,7 +187,18 @@ public class CurrencyConverter {
 			public void actionPerformed(ActionEvent e) {
 				double amount = Double.parseDouble(jTextBoxAmount.getText());
 				double result = converter(currentCurrency, amount);
-				jLabelCVTResult.setText("The result is:" + result + " GBP");
+				String output = new String("The result is: " + result + " GBP");
+				jLabelCVTResult.setText(output);
+				PrintWriter out;				
+				try {
+					out = new PrintWriter("result.txt");
+					out.println(output);
+					out.close();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+								
 			}
 		});
 		jButtonConvert.setBounds(6, 232, 117, 29);
